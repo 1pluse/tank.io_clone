@@ -4,7 +4,6 @@ public class Bullet : MonoBehaviour
 {
     public float BulletSpeed;
     public float LifeTime;
-    float time;
     Rigidbody2D rigid;
 
     private void Awake()
@@ -14,12 +13,15 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - transform.position);
+        Vector3 direction = (mousePosition - transform.position).normalized;
+        direction.z = 0;
+        direction.Normalize();
         rigid.linearVelocity = direction * BulletSpeed;
     }
 
     private void Update()
     {
+        float time = 0;
         time += Time.deltaTime;
         if (time >= LifeTime) {
             Destroy(gameObject);

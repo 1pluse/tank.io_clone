@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float BulletSpeed;
     public float LifeTime;
+    float time;
     Rigidbody2D rigid;
 
     private void Awake()
@@ -21,9 +22,8 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        float time = 0;
         time += Time.deltaTime;
-        if (time >= LifeTime) {
+        if (time > LifeTime) {
             Destroy(gameObject);
         }
     }

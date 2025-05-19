@@ -12,6 +12,6 @@ public class AreaFollowing : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.MovePosition((Vector2)player.position);
+        rigid.MovePosition(player.position);
     }
 }

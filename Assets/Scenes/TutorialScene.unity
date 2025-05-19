@@ -4949,8 +4949,8 @@ GameObject:
   - component: {fileID: 1019052259}
   - component: {fileID: 1019052258}
   - component: {fileID: 1019052262}
-  - component: {fileID: 1019052261}
   - component: {fileID: 1019052260}
+  - component: {fileID: 1019052261}
   - component: {fileID: 1019052263}
   m_Layer: 0
   m_Name: Tilemap

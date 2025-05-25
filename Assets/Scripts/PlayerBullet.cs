@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class PlayerBuller : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] float BulletSpeed;
     [SerializeField] float LifeTime;
     float time;
     Rigidbody2D rigid;
+    [SerializeField] GameObject Effect;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class PlayerBuller : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+            Instantiate(Effect, transform.position, Quaternion.identity);
         }
     }
 }

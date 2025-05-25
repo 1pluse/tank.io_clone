@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] float LifeTime;
     float time;
     Rigidbody2D rigid;
-
+    [SerializeField] GameObject Effect;
 
     private void Awake()
     {
@@ -36,6 +36,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
+            Instantiate(Effect, transform.position, Quaternion.identity);
         }
     }
 }

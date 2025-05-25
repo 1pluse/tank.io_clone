@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AreaFollowing : MonoBehaviour
+public class PlayerAreaFollowing : MonoBehaviour
 {
     public Transform player;
     private Rigidbody2D rigid;

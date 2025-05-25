@@ -1,18 +1,21 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] float speed;
     Rigidbody2D rigid;
     public Rigidbody2D target;
-
+    
+    public bool AttackState = false;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
+        if (AttackState)
+            return;
         Vector2 dirV = target.transform.position - gameObject.transform.position;
         Vector2 NextVec = dirV.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + NextVec);

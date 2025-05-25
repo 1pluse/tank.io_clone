@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBuller : MonoBehaviour
 {
-    public float BulletSpeed;
-    public float LifeTime;
+    [SerializeField] float BulletSpeed;
+    [SerializeField] float LifeTime;
     float time;
     Rigidbody2D rigid;
 
@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviour
     }
     private void Start()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = (mousePosition - transform.position).normalized;
+        Vector3 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = (MousePosition - transform.position).normalized;
         direction.z = 0;
         direction.Normalize();
         rigid.linearVelocity = direction * BulletSpeed;
@@ -23,7 +23,8 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if (time > LifeTime) {
+        if (time > LifeTime)
+        {
             Destroy(gameObject);
         }
     }

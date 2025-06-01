@@ -10,7 +10,7 @@ public class PlayerAreaFollowing : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         rigid.MovePosition(player.position);
     }

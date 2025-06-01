@@ -1,9 +1,10 @@
+using NUnit.Framework.Constraints;
 using Unity.AppUI.Core;
 using UnityEngine;
 
 public class PlayerBaseSkill : MonoBehaviour
 {
-    public float Dashdistance;
+    [SerializeField] float Dashdistance;
     Rigidbody2D rigid;
 
     private void Awake()

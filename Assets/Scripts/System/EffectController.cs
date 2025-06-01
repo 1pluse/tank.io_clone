@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class EffectController : MonoBehaviour
 {
-    public float LifeTime;
+    [SerializeField] float LifeTime;
     float time = 0;
+
 
     private void FixedUpdate()
     {

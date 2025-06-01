@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 36c2723f4c1eb7c4ba610981d9442d96
+guid: 5565120fa26ab67439df1a8f6975e14d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -698312063900034692
-    second: PlayerTank 1_0
+      213: 5826877516898365915
+    second: TankBullet-Sheet 1_0
   - first:
-      213: 7447567518109404487
-    second: PlayerTank 1_1
+      213: -1919246609521788962
+    second: TankBullet-Sheet 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerTank 1_0
+      name: TankBullet-Sheet 1_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 2
-        width: 22
-        height: 30
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c795ed0b0e81f46f0800000000000000
-      internalID: -698312063900034692
+      spriteID: bd1ff60ca3a3dd050800000000000000
+      internalID: 5826877516898365915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank 1_1
+      name: TankBullet-Sheet 1_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 2
-        width: 22
-        height: 30
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74d06a5e2331b5760800000000000000
-      internalID: 7447567518109404487
+      spriteID: ed7b41390677d55e0800000000000000
+      internalID: -1919246609521788962
       vertices: []
       indices: 
       edges: []
@@ -176,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 767e41d8df5bd184db21f857a8920392
     internalID: 0
     vertices: []
     indices: 
@@ -186,8 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerTank 1_0: -698312063900034692
-      PlayerTank 1_1: 7447567518109404487
+      TankBullet-Sheet 1_0: 5826877516898365915
+      TankBullet-Sheet 1_1: -1919246609521788962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

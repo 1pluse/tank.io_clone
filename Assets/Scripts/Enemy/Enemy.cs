@@ -1,17 +1,18 @@
-    using Unity.VisualScripting;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float MaxHp;
+    [SerializeField] float AttackDistance;
     float CurrentHp;
     Transform target;
     Rigidbody2D rigid;
 
     [SerializeField] SliderManager healthbar;
 
-    public bool AttackState = false;
+    public bool AttackState;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -31,6 +32,16 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        float currentDistance = Vector2.Distance(target.position, transform.position);
+        if (currentDistance <= AttackDistance)
+        {
+            AttackState = true;
+        }
+        else
+        {
+            AttackState = false;
+        }
+
         if (AttackState)
             return;
         Vector2 dirV = target.position - gameObject.transform.position;

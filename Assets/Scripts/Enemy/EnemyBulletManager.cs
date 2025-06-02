@@ -3,12 +3,19 @@ using UnityEngine;
 
 public class EnemyBulletManager : MonoBehaviour
 {
-    public GameObject Bullet;
-    public float FireCoolTime;
+    [SerializeField] GameObject Bullet;
+    [SerializeField] float FireCoolTime;
     float time;
+    Enemy enemy;
 
+    private void Awake()
+    {
+        enemy = GetComponent<Enemy>();
+    }
     private void Update()
     {
+        if (!enemy.AttackState)  
+            return;
         time += Time.deltaTime;
         if (time > FireCoolTime)
         {

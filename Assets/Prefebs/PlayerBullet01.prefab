@@ -167,4 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpeed: 5
   LifeTime: 2
+  Damage: 4
   Effect: {fileID: 3372920002845935174, guid: 3fa6897cf9f6eeb4ba0922c980ec4c06, type: 3}

@@ -4,8 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] float MaxHp;
     [SerializeField] float AttackDistance;
+    public float MaxHp;
     float CurrentHp;
     Transform target;
     Rigidbody2D rigid;
@@ -54,5 +54,12 @@ public class Enemy : MonoBehaviour
         Vector2 dirV = target.position - gameObject.transform.position;
         float angle = Mathf.Atan2(dirV.y, dirV.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할
+    }
+
+    public void TakeDamage(float damage)
+    {
+        CurrentHp -= damage;
+        if(CurrentHp <= 0) 
+            Destroy(gameObject);
     }
 }

@@ -4,6 +4,7 @@ public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] float BulletSpeed;
     [SerializeField] float LifeTime;
+    public float Damage;
     float time;
     Rigidbody2D rigid;
     [SerializeField] GameObject Effect;
@@ -35,7 +36,10 @@ public class PlayerBullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.TakeDamage(Damage);
             Instantiate(Effect, transform.position, Quaternion.identity);
+            
         }
     }
 }

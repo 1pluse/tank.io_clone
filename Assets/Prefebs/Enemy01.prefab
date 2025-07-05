@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4219702, g: 0.735849, b: 0.17632605, a: 1}
+  m_Color: {r: 0.41588947, g: 0.8415094, b: 0.08097541, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -497,8 +497,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
-  m_LinearDamping: 0
+  m_Mass: 5
+  m_LinearDamping: 15
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  AttackDistance: 7.5
+  AttackDistance: 5.6
   MaxHp: 20
   healthbar: {fileID: 0}
   AttackState: 0

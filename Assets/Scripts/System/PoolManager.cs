@@ -7,7 +7,7 @@ public class PoolManager : MonoBehaviour
     public GameObject[] prefabs;
     List<GameObject>[] pools;
 
-    private void Awake()
+    private void Awake()    
     {
         pools = new List<GameObject>[prefabs.Length];
             
@@ -19,19 +19,21 @@ public class PoolManager : MonoBehaviour
     public GameObject Get(int i)
     {
         GameObject select = null;
-        foreach (GameObject prefab in pools[i]) {
-            if (!prefab.activeSelf)
+            foreach (GameObject prefab in pools[i])
             {
-                select = prefab;
-                select.SetActive(true);
-                break;
+                if (!prefab.activeSelf) 
+                {
+                    select = prefab;
+                    select.SetActive(true);
+                    break;
+                }
             }
-        }
-
-        if (!select) { 
-            select = Instantiate(prefabs[i],transform);
+        
+        if (!select)
+        {
+            select = Instantiate(prefabs[i], transform);
             pools[i].Add(select);
         }
-        return select;
+        return select;  
     }
 }

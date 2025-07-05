@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float AttackDistance;
     public float MaxHp;
     float CurrentHp;
-    Transform target;
+    Rigidbody2D target;
     Rigidbody2D rigid;
 
     [SerializeField] SliderManager healthbar;
@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
     {
         CurrentHp = MaxHp;
         healthbar.HealthControll(CurrentHp, MaxHp);
-        target = GameObject.Find("Player").transform;
     }
 
     private void Update()
     {
         healthbar.HealthControll(CurrentHp,MaxHp);
+        rigid.position = rigid.position;
     }
     private void FixedUpdate()
     {
@@ -44,14 +44,14 @@ public class Enemy : MonoBehaviour
 
         if (AttackState)
             return;
-        Vector2 dirV = target.position - gameObject.transform.position;
+        Vector2 dirV = target.position - rigid.position;
         Vector2 NextVec = dirV.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + NextVec);
         rigid.linearVelocity = Vector2.zero;
     }       
     private void LateUpdate()
     {
-        Vector2 dirV = target.position - gameObject.transform.position;
+        Vector2 dirV = target.position - rigid.position;
         float angle = Mathf.Atan2(dirV.y, dirV.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할
     }
@@ -60,6 +60,12 @@ public class Enemy : MonoBehaviour
     {
         CurrentHp -= damage;
         if(CurrentHp <= 0) 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
+        CurrentHp = MaxHp;
     }
 }

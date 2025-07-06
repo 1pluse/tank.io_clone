@@ -6,9 +6,10 @@ public class Player : MonoBehaviour
 {
     public float Speed;
     Rigidbody2D rigid;
-    public Vector2 InputVec;
+    [SerializeField] Vector2 InputVec;
     public float CurrentHp;
     public float MaxHp;
+    public int Level;
     
     [SerializeField] bool isLookAt = true;
     [SerializeField] SliderManager healthbar;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         healthbar = GameObject.Find("PlayerHp").GetComponent<SliderManager>();
+        expbar  = GameObject.Find("PlayerExp").GetComponent<SliderManager>();
     }
     private void Start()
     {

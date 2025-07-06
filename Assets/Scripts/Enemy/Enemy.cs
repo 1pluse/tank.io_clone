@@ -21,14 +21,13 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        CurrentHp = MaxHp;
-        healthbar.HealthControll(CurrentHp, MaxHp);
+        this.CurrentHp = this.MaxHp;
+        healthbar.HealthControll(this.CurrentHp, this.MaxHp);
     }
 
     private void Update()
     {
-        healthbar.HealthControll(CurrentHp,MaxHp);
-        rigid.position = rigid.position;
+        healthbar.HealthControll(this.CurrentHp,this.MaxHp);
     }
     private void FixedUpdate()
     {
@@ -66,6 +65,6 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
-        CurrentHp = MaxHp;
+        this.CurrentHp = this.MaxHp;
     }
 }

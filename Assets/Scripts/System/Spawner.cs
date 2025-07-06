@@ -6,10 +6,6 @@ public class Spawner : MonoBehaviour
     float time;
     public float Spawntime;
 
-    private void Start()
-    {
-        Spawn();
-    }
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();

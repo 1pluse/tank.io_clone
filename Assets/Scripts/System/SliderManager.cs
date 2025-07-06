@@ -6,9 +6,11 @@ public class SliderManager : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] Transform target;
     [SerializeField] Vector3 offset;
+    [SerializeField] bool Enemy;
 
     private void Awake()
     {
+        if(Enemy)
         target = transform.parent.parent;
     }
     public void HealthControll(float Current, float Max)
@@ -18,8 +20,11 @@ public class SliderManager : MonoBehaviour
 
     private void Update()
     {
-        target = transform.parent.parent;
-        transform.rotation = Camera.main.transform.rotation;
-        transform.position = target.position + offset;
+        if (Enemy)
+        {
+            target = transform.parent.parent;
+            transform.rotation = Camera.main.transform.rotation;
+            transform.position = target.position + offset;
+        }
     }
 }

@@ -180,6 +180,7 @@ MonoBehaviour:
   slider: {fileID: 3913188049083637801}
   target: {fileID: 0}
   offset: {x: 0, y: -0.6, z: 0}
+  Enemy: 1
 --- !u!1 &3600464296691337281
 GameObject:
   m_ObjectHideFlags: 0

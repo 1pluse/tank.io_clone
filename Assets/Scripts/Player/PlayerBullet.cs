@@ -39,7 +39,6 @@ public class PlayerBullet : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             enemy.TakeDamage(Damage);
             Instantiate(Effect, transform.position, Quaternion.identity);
-            
         }
     }
 }

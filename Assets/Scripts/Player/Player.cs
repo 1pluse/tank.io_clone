@@ -7,12 +7,22 @@ public class Player : MonoBehaviour
     public float Speed;
     Rigidbody2D rigid;
     public Vector2 InputVec;
+    public float CurrentHp;
+    public float MaxHp;
     
     [SerializeField] bool isLookAt = true;
+    [SerializeField] SliderManager healthbar;
+    [SerializeField] SliderManager expbar;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        healthbar = GameObject.Find("PlayerHp").GetComponent<SliderManager>();
+    }
+    private void Start()
+    {
+        this.CurrentHp = this.MaxHp;
+        healthbar.HealthControll(this.CurrentHp, this.MaxHp);
     }
 
     private void Update()
@@ -22,9 +32,11 @@ public class Player : MonoBehaviour
         Vector2 direction = (mousePosition - transform.position);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할 수도 있음
+        healthbar.HealthControll(this.CurrentHp, this.MaxHp);
     }
 
-void FixedUpdate()
+
+    void FixedUpdate()
     {
         Vector2 moveVec = InputVec * Time.fixedDeltaTime * Speed;
         rigid.MovePosition(rigid.position + moveVec);   
@@ -33,5 +45,10 @@ void FixedUpdate()
     void OnMove(InputValue inputValue)
     {
         InputVec = inputValue.Get<Vector2>();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        this.CurrentHp -= damage;
     }
 }

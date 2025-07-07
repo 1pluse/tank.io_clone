@@ -18,6 +18,10 @@ public class SliderManager : MonoBehaviour
         slider.value = Current / Max;
     }
 
+    public void EXPControll(float Current, float Max)
+    {
+        slider.value = Current/Max;
+    }
     private void Update()
     {
         if (Enemy)

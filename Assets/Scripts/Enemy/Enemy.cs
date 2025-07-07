@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     float CurrentHp;
     Rigidbody2D target;
     Rigidbody2D rigid;
+    Vector2 dirV;
 
+    [SerializeField] GameObject EXP_Orb;
     [SerializeField] SliderManager healthbar;
 
     public bool AttackState;
@@ -22,7 +24,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         this.CurrentHp = this.MaxHp;
-        healthbar.HealthControll(this.CurrentHp, this.MaxHp);
     }
 
     private void Update()
@@ -43,14 +44,13 @@ public class Enemy : MonoBehaviour
 
         if (AttackState)
             return;
-        Vector2 dirV = target.position - rigid.position;
+        dirV = target.position - rigid.position;
         Vector2 NextVec = dirV.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + NextVec);
         rigid.linearVelocity = Vector2.zero;
     }       
     private void LateUpdate()
     {
-        Vector2 dirV = target.position - rigid.position;
         float angle = Mathf.Atan2(dirV.y, dirV.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할
     }
@@ -58,8 +58,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHp -= damage;
-        if(CurrentHp <= 0) 
+        if (CurrentHp <= 0)
+        {
+            Instantiate(EXP_Orb, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()

@@ -6,10 +6,13 @@ public class Player : MonoBehaviour
 {
     public float Speed;
     Rigidbody2D rigid;
-    [SerializeField] Vector2 InputVec;
+    Vector2 InputVec;
     public float CurrentHp;
     public float MaxHp;
     public int Level;
+    public float CurrentExp;
+    public float MaxExp;
+
     
     [SerializeField] bool isLookAt = true;
     [SerializeField] SliderManager healthbar;
@@ -18,13 +21,12 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        healthbar = GameObject.Find("PlayerHp").GetComponent<SliderManager>();
-        expbar  = GameObject.Find("PlayerExp").GetComponent<SliderManager>();
+        healthbar = GameObject.Find("PlayerHp").GetComponentInChildren<SliderManager>();
+        expbar  = GameObject.Find("PlayerExp").GetComponentInChildren<SliderManager>();
     }
     private void Start()
     {
         this.CurrentHp = this.MaxHp;
-        healthbar.HealthControll(this.CurrentHp, this.MaxHp);
     }
 
     private void Update()
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할 수도 있음
         healthbar.HealthControll(this.CurrentHp, this.MaxHp);
+        expbar.EXPControll(this.CurrentExp , this.MaxExp);
     }
 
 

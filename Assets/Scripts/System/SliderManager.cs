@@ -13,15 +13,11 @@ public class SliderManager : MonoBehaviour
         if(Enemy)
         target = transform.parent.parent;
     }
-    public void HealthControll(float Current, float Max)
+    public void SliderControll(float Current, float Max)
     {
         slider.value = Current / Max;
     }
 
-    public void EXPControll(float Current, float Max)
-    {
-        slider.value = Current/Max;
-    }
     private void Update()
     {
         if (Enemy)

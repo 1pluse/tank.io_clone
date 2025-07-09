@@ -12,6 +12,8 @@ public class PlayerAreaFollowing : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            return;
         rigid.MovePosition(player.position);
     }
 }

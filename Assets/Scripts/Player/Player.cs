@@ -1,3 +1,4 @@
+using Unity.AppUI.UI;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -14,7 +15,6 @@ public class Player : MonoBehaviour
     public float MaxExp;
 
     
-    [SerializeField] bool isLookAt = true;
     [SerializeField] SliderManager healthbar;
     [SerializeField] SliderManager expbar;
     [SerializeField] EXP_Manager Exp_Manager;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!isLookAt) 
+        if (GameManager.instance.Ui_Manager.GameFreeze)
             return;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - transform.position);
@@ -42,15 +42,17 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f); // 또는 angle만으로 충분할 수도 있음
         HpManager();
         healthbar.SliderControll(this.CurrentHp, this.MaxHp);
-        //ExpManager();
         ExpManager();
         expbar.SliderControll(this.CurrentExp, this.MaxExp);
     }
 
     void FixedUpdate()
     {
+        if (GameManager.instance.Ui_Manager.GameFreeze)
+            return;
         Vector2 moveVec = InputVec * Time.fixedDeltaTime * Speed;
-        rigid.MovePosition(rigid.position + moveVec);   
+        rigid.MovePosition(rigid.position + moveVec);
+        
     }
         
     void OnMove(InputValue inputValue)
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour
         {
             CurrentExp -= CurrentExp;
             Level++;
+            GameManager.instance.Ui_Manager.SkillChooseBackGround.SetActive(true);
         }
     }
 }

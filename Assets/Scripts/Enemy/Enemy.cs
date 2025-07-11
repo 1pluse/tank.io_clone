@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject EXP_Orb;
     [SerializeField] SliderManager healthbar;
-
     public bool AttackState;
     private void Awake()
     {
@@ -28,21 +27,22 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.Ui_Manager.GameFreeze)
+            return;
         healthbar.SliderControll(this.CurrentHp,this.MaxHp);
         AttackStateCheck();
         dirV = target.position - rigid.position;
-        if (CurrentHp <= 0)
-        {
-            Instantiate(EXP_Orb, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
-        }
-
+            if (CurrentHp <= 0)
+            {
+                Instantiate(EXP_Orb, transform.position, Quaternion.identity);
+                gameObject.SetActive(false);
+            }
     }
     private void FixedUpdate()
     {
-        if (target == null)
+        if (GameManager.instance.Ui_Manager.GameFreeze)
             return;
-        if (AttackState)
+        if (AttackState || target == null)
             return;
             Vector2 NextVec = dirV.normalized * speed * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + NextVec);

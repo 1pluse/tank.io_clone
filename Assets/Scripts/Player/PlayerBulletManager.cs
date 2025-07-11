@@ -8,7 +8,9 @@ public class PlayerBulletManager : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
+        if (GameManager.instance.Ui_Manager.GameFreeze)
+            return;
+            time += Time.deltaTime;
         if (time > FireCoolTime)
         {
             Instantiate(Bullet, transform.position, Quaternion.identity);

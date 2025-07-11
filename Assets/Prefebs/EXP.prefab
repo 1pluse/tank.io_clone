@@ -166,6 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f1a573cb847aa4c9c15fc6ca1ff611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EXP: 1.5
+  EXP: 20
   target: {fileID: 0}
-  EXP_Orb_Speed: 3
+  EXP_Orb_Speed: 5

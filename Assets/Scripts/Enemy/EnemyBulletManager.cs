@@ -16,11 +16,14 @@ public class EnemyBulletManager : MonoBehaviour
     {
         if (!enemy.AttackState)  
             return;
-        time += Time.deltaTime;
-        if (time > FireCoolTime)
+        if (!GameManager.instance.Ui_Manager.GameFreeze)
         {
-            Instantiate(Bullet, transform.position, Quaternion.identity);
-            time = 0;
+            time += Time.deltaTime;
+            if (time > FireCoolTime)
+            {
+                Instantiate(Bullet, transform.position, Quaternion.identity);
+                time = 0;
+            }
         }
     }
 }

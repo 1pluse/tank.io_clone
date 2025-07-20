@@ -1,12 +1,16 @@
+using JetBrains.Annotations;
 using TMPro;
 using Unity.AppUI.UI;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Ui_Manager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI LevelText;
     [SerializeField] Font[] fonts;
     public GameObject SkillChooseBackGround;
+    public GameObject[] ChooseButton;
     public bool GameFreeze;
 
     private void Awake()

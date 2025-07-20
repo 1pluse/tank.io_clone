@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8fed74ab1203f4a8bf8b4b201c9d3d, type: 3}
-  m_Name: MaxHP
+  m_Name: EXP_GainAmount
   m_EditorClassIdentifier: 
-  Stattype: 0
-  Id: 1
-  StatName: "\uCD5C\uB300\uCCB4\uB825 \uC99D\uAC00"
-  StatDiscription: fasdf
-  Icon: {fileID: -6827623761535971870, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
-  BaseStat: 100
+  StatType: 0
+  Id: 2
+  Level: 0
+  StatName: "\uACBD\uD5D8\uCE58 \uD68D\uB4DD\uB7C9"
+  StatDiscription: fafsf
+  Icon: {fileID: 3391642916758160437, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
+  BaseStat: 0
   UpgradeStats:
-  - 0.25
-  - 0.5
-  - 1
-  - 1.5
-  - 3
+  - 0.05
+  - 0.75
+  - 0.1
+  - 0.125
+  - 0.15

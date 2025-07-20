@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float Speed;
     Rigidbody2D rigid;
     Vector2 InputVec;
+    int MaxExp_Increase;
     public float CurrentHp;
     public float MaxHp;
     public int Level;
@@ -17,14 +18,11 @@ public class Player : MonoBehaviour
     
     [SerializeField] SliderManager healthbar;
     [SerializeField] SliderManager expbar;
-    [SerializeField] EXP_Manager Exp_Manager;
-
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         healthbar = GameObject.Find("PlayerHp").GetComponentInChildren<SliderManager>();
         expbar  = GameObject.Find("PlayerExp").GetComponentInChildren<SliderManager>();
-        Exp_Manager = GameObject.Find("Exp_Manager").GetComponent<EXP_Manager>();
     }
     private void Start()
     {
@@ -52,7 +50,6 @@ public class Player : MonoBehaviour
             return;
         Vector2 moveVec = InputVec * Time.fixedDeltaTime * Speed;
         rigid.MovePosition(rigid.position + moveVec);
-        
     }
         
     void OnMove(InputValue inputValue)
@@ -77,6 +74,8 @@ public class Player : MonoBehaviour
         {
             CurrentExp -= CurrentExp;
             Level++;
+            MaxExp_Increase += 15;
+            MaxExp += Level * MaxExp_Increase;
             GameManager.instance.Ui_Manager.SkillChooseBackGround.SetActive(true);
         }
     }

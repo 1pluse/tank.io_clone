@@ -1,20 +1,28 @@
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "BaseStat", menuName = "Scriptable Objects/BaseStat")]
 public class BaseStatData : ScriptableObject
 {
-    public enum BaseStatype { EXP_GainAmount, HP, Speed, AttackDamage }
+    public enum BaseStatype { EXP_GainAmount, MaxHP, Speed, AttackDamage }
     [Header("Maininfo")]
-    [SerializeField] BaseStatype Stattype;
-    [SerializeField] int Id;
-    [SerializeField] string StatName;
-    [SerializeField] string StatExplane;
-    [SerializeField] Sprite UpgradeIcon;
+    public BaseStatype StatType;
+    public int Id;
+    public int Level;
+    public string StatName;
+    [TextArea]
+    public string StatDiscription;
+    public Sprite Icon;
 
     [Header("UpgradeStat")]
-    [SerializeField] float BaseStat;
-    [SerializeField] float[] UpgradeStats;
+    public float BaseStat;
+    public float[] UpgradeStats;
+
+    public void Reset()
+    {
+        Level = 0;
+    }
 }
     

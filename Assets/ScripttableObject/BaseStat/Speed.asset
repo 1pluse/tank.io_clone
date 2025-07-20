@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8fed74ab1203f4a8bf8b4b201c9d3d, type: 3}
-  m_Name: MaxHP
+  m_Name: Speed
   m_EditorClassIdentifier: 
-  Stattype: 0
-  Id: 1
-  StatName: "\uCD5C\uB300\uCCB4\uB825 \uC99D\uAC00"
-  StatDiscription: fasdf
-  Icon: {fileID: -6827623761535971870, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
-  BaseStat: 100
+  StatType: 0
+  Id: 3
+  Level: 0
+  StatName: "\uC774\uB3D9 \uC18D\uB3C4"
+  StatDiscription: fadsdf
+  Icon: {fileID: -486401438332720802, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
+  BaseStat: 3
   UpgradeStats:
+  - 1
   - 0.25
   - 0.5
+  - 0.75
   - 1
-  - 1.5
-  - 3

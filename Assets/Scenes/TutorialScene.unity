@@ -9188,6 +9188,8 @@ MonoBehaviour:
   Level: 0
   CurrentExp: 0
   MaxExp: 20
+  AttackDamage: 20
+  Exp_CollectAmount: 1
   healthbar: {fileID: 0}
   expbar: {fileID: 0}
 --- !u!70 &907457542
@@ -9758,7 +9760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d51dba3b7559d46bf14db738001bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: fa44b648bd2f6d443a3dcd6556f09d94, type: 2}
+  data: {fileID: 11400000, guid: d90319b72df30dd4c95dbc7440411139, type: 2}
 --- !u!1 &987298842
 GameObject:
   m_ObjectHideFlags: 0
@@ -31574,9 +31576,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 561837856}
+  - {fileID: 907457545}
   - {fileID: 708740218}
   - {fileID: 1648733128}
-  - {fileID: 907457545}
   - {fileID: 987298843}
   - {fileID: 623613391}
   - {fileID: 30537785}

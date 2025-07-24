@@ -564,8 +564,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   AttackDistance: 5.6
+  EXP: 10
   MaxHp: 20
-  EXP_Orb: {fileID: 2003810734042974142, guid: 2e410c7efc0b43d4c8425e108c78bdd2, type: 3}
+  Exp_Orb: {fileID: 2003810734042974142, guid: 2e410c7efc0b43d4c8425e108c78bdd2, type: 3}
   healthbar: {fileID: 0}
   AttackState: 0
 --- !u!114 &2901639289035838130

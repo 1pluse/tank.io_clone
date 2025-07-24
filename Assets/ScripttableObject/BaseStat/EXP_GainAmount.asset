@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8fed74ab1203f4a8bf8b4b201c9d3d, type: 3}
   m_Name: EXP_GainAmount
   m_EditorClassIdentifier: 
-  StatType: 0
+  StatType: 1
   Id: 2
-  Level: 0
+  Level: 1
   StatName: "\uACBD\uD5D8\uCE58 \uD68D\uB4DD\uB7C9"
-  StatDiscription: fafsf
+  StatDiscription: "\uACBD\uD5D8\uCE58 \uD68D\uB4DD\uB7C9\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4"
   Icon: {fileID: 3391642916758160437, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
-  BaseStat: 0
+  BaseStat: 1
   UpgradeStats:
-  - 0.05
-  - 0.75
-  - 0.1
-  - 0.125
-  - 0.15
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 2.5

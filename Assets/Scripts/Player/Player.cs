@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public int Level;
     public float CurrentExp;
     public float MaxExp;
+    public float AttackDamage;
+    public float Exp_CollectAmount = 1f;
 
     
     [SerializeField] SliderManager healthbar;

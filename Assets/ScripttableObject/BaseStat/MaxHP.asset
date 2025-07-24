@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8fed74ab1203f4a8bf8b4b201c9d3d, type: 3}
   m_Name: MaxHP
   m_EditorClassIdentifier: 
-  Stattype: 0
+  StatType: 0
   Id: 1
+  Level: 0
   StatName: "\uCD5C\uB300\uCCB4\uB825 \uC99D\uAC00"
-  StatDiscription: fasdf
+  StatDiscription: "\uCD5C\uB300\uCCB4\uB825\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4"
   Icon: {fileID: -6827623761535971870, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
-  BaseStat: 100
   UpgradeStats:
-  - 0.25
-  - 0.5
+  - 40
+  - 90
   - 1
   - 1.5
   - 3

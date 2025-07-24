@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "BaseStat", menuName = "Scriptable Objects/BaseStat")]
 public class BaseStatData : ScriptableObject
 {
-    public enum BaseStatype { EXP_GainAmount, MaxHP, Speed, AttackDamage }
+    public enum BaseStatype { MaxHP,EXP_GainAmount, Speed, AttackDamage }
     [Header("Maininfo")]
     public BaseStatype StatType;
     public int Id;
@@ -16,8 +16,7 @@ public class BaseStatData : ScriptableObject
     public string StatDiscription;
     public Sprite Icon;
 
-    [Header("UpgradeStat")]
-    public float BaseStat;
+    [Header("UpgradeStat")]     
     public float[] UpgradeStats;
 
     public void Reset()

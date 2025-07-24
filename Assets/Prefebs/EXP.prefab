@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f1a573cb847aa4c9c15fc6ca1ff611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EXP: 20
+  EXP: 0
   target: {fileID: 0}
   EXP_Orb_Speed: 5
+  enemy: {fileID: 0}

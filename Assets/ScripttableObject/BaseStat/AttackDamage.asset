@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8fed74ab1203f4a8bf8b4b201c9d3d, type: 3}
   m_Name: AttackDamage
   m_EditorClassIdentifier: 
-  StatType: 0
+  StatType: 3
   Id: 4
   Level: 0
   StatName: "\uACF5\uACA9\uB825"
-  StatDiscription: "\uACF5\uACA9\uB825\uC774 "
+  StatDiscription: "\uACF5\uACA9\uB825\uC774 {0}% \uC99D\uAC00\uD55C\uB2E4"
   Icon: {fileID: -974192066881964279, guid: 438e06ee0d79a4f48a86a54f3398aea5, type: 3}
-  BaseStat: 10
   UpgradeStats:
-  - 0.1
-  - 0.15
-  - 0.3
-  - 0.45
-  - 0.6
+  - 2
+  - 5
+  - 10
+  - 16
+  - 25

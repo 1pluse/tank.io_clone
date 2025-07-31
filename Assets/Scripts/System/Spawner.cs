@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     }
     void Update()
     {
-        if (GameManager.instance.Ui_Manager.GameFreeze)
+        if (GameManager.instance.GameFreeze)
             return;
         time += Time.deltaTime;
         if (time > Spawntime) {

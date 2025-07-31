@@ -10,8 +10,6 @@ public class Ui_Manager : MonoBehaviour
     [SerializeField] TextMeshProUGUI LevelText;
     [SerializeField] Font[] fonts;
     public GameObject SkillChooseBackGround;
-    public GameObject[] ChooseButton;
-    public bool GameFreeze;
 
     private void Awake()
     {
@@ -27,13 +25,6 @@ public class Ui_Manager : MonoBehaviour
 
     private void Update()
     {
-        LevelText.text = "LV:" + GameManager.instance.player.Level;
-        if (SkillChooseBackGround.activeSelf) { 
-            GameFreeze = true;
-        }
-        else
-        {
-            GameFreeze = false;
-        }
+        LevelText.text = "LV:" + GameManager.instance.playerStats.Level;
     }
 }

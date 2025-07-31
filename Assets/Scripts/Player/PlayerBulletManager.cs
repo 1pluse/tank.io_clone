@@ -8,7 +8,7 @@ public class PlayerBulletManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.Ui_Manager.GameFreeze)
+        if (GameManager.instance.GameFreeze)
             return;
             time += Time.deltaTime;
         if (time > FireCoolTime)

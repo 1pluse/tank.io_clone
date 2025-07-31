@@ -5,21 +5,17 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float AttackDistance;
-    public float EXP;    
-    public float MaxHp;
+    public float EXP;
     float CurrentHp;
-    Rigidbody2D target;
+    public float MaxHp;
     Rigidbody2D rigid;
     Vector2 dirV;
 
     [SerializeField] GameObject Exp_Orb;
-    [SerializeField] SliderManager healthbar;
     public bool AttackState;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        healthbar = GetComponentInChildren<SliderManager>();
-
     }
 
     private void Start()
@@ -29,24 +25,23 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.Ui_Manager.GameFreeze)
+        if (GameManager.instance.GameFreeze)
             return;
-        healthbar.SliderControll(this.CurrentHp,this.MaxHp);
         AttackStateCheck();
-        dirV = target.position - rigid.position;
+        dirV = (Vector2)GameManager.instance.player.transform.position - rigid.position;
             if (CurrentHp <= 0)
-            {                
-                Instantiate(Exp_Orb.gameObject, transform.position, Quaternion.identity);
+            {
                 EXP_Orb _Exp_Orb = Exp_Orb.GetComponent<EXP_Orb>();
                 _Exp_Orb.EXP = EXP;
+                Instantiate(_Exp_Orb.gameObject, transform.position, Quaternion.identity);;
                 gameObject.SetActive(false);
             }
     }
     private void FixedUpdate()
     {
-        if (GameManager.instance.Ui_Manager.GameFreeze)
+        if (GameManager.instance.GameFreeze)
             return;
-        if (AttackState || target == null)
+        if (AttackState)
             return;
             Vector2 NextVec = dirV.normalized * speed * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + NextVec);
@@ -66,13 +61,12 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
         this.CurrentHp = this.MaxHp;
     }
 
     void AttackStateCheck()
     {
-        float currentDistance = Vector2.Distance(target.position, transform.position);
+        float currentDistance = Vector2.Distance((Vector2)GameManager.instance.player.transform.position, transform.position);
         if (currentDistance <= AttackDistance)
         {
             AttackState = true;
@@ -83,3 +77,4 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+    

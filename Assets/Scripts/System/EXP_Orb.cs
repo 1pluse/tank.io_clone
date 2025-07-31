@@ -5,26 +5,18 @@ public class EXP_Orb : MonoBehaviour
 {
     Rigidbody2D rigid;
     public float EXP;
-    [SerializeField] Rigidbody2D target;
     [SerializeField] float EXP_Orb_Speed;
-    [SerializeField] Enemy enemy;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
-    private void Start()
-    {
-        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
-    }
     private void Update()   
     {
-        if (target == null)
-            return;
-        if (!GameManager.instance.Ui_Manager.GameFreeze)
+        if (!GameManager.instance.GameFreeze)
         {
             Vector2 dirV;
-            dirV = target.position - rigid.position;
+            dirV = (Vector2)GameManager.instance.player.transform.position - rigid.position;
             Vector2 NextVec = dirV.normalized * EXP_Orb_Speed * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + NextVec);
             rigid.linearVelocity = Vector2.zero;
@@ -34,7 +26,7 @@ public class EXP_Orb : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.instance.player.CurrentExp += (EXP * GameManager.instance.player.Exp_CollectAmount);
+            GameManager.instance.playerStats.CurrentExp += (EXP * GameManager.instance.playerStats.Exp_CollectAmount);
             Destroy(gameObject);
         }
     }

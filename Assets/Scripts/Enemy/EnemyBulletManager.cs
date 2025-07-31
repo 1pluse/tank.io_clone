@@ -16,7 +16,7 @@ public class EnemyBulletManager : MonoBehaviour
     {
         if (!enemy.AttackState)  
             return;
-        if (!GameManager.instance.Ui_Manager.GameFreeze)
+        if (!GameManager.instance.GameFreeze)
         {
             time += Time.deltaTime;
             if (time > FireCoolTime)

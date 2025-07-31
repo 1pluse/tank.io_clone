@@ -8,9 +8,9 @@ public class BaseStatData : ScriptableObject
 {
     public enum BaseStatype { MaxHP,EXP_GainAmount, Speed, AttackDamage }
     [Header("Maininfo")]
+    public int Level;
     public BaseStatype StatType;
     public int Id;
-    public int Level;
     public string StatName;
     [TextArea]
     public string StatDiscription;
@@ -18,10 +18,5 @@ public class BaseStatData : ScriptableObject
 
     [Header("UpgradeStat")]     
     public float[] UpgradeStats;
-
-    public void Reset()
-    {
-        Level = 0;
-    }
 }
     

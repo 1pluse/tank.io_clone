@@ -169,4 +169,3 @@ MonoBehaviour:
   EXP: 0
   target: {fileID: 0}
   EXP_Orb_Speed: 5
-  enemy: {fileID: 0}
